@@ -3,7 +3,7 @@ const router = express.Router();
 const { body, validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const User = require('../models/User'); // Adjust the path to your User model
+const User = require('../models/User'); 
 
 // Helper function to handle validation errors
 const handleValidationErrors = (req, res, next) => {
@@ -29,7 +29,7 @@ router.post('/register', registrationValidationRules, handleValidationErrors, as
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = new User({ email, first_name, last_name, password: hashedPassword });
     await user.save();
-    res.status(201).send({ message: 'User created successfully', user: { email, first_name, last_name } });
+    res.status(201).send({ message: 'User created successfully', user: { email, first_name, last_name, _id: user._id } });
   } catch (error) {
     console.error('Error in registration:', error);
     res.status(500).send({ message: 'Internal server error', error: error.message });
@@ -39,7 +39,7 @@ router.post('/register', registrationValidationRules, handleValidationErrors, as
 // Validation rules for login
 const loginValidationRules = [
   body('email').isEmail().withMessage('Enter a valid email address'),
-  body('password').not().isEmpty()
+  body('password').not().isEmpty().withMessage('Password is required')
 ];
 
 // Login user endpoint
@@ -59,6 +59,7 @@ router.post('/login', loginValidationRules, handleValidationErrors, async (req, 
     const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
     res.send({ message: 'Logged in successfully', token, user: { id: user._id, email: user.email } });
   } catch (error) {
+    console.error('Error in login:', error);
     res.status(500).send({ message: 'Internal server error', error: error.message });
   }
 });

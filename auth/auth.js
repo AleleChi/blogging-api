@@ -1,14 +1,14 @@
 const jwt = require('jsonwebtoken');
-const { expressjwt: expressJwt } = require('express-jwt');  // Updated import for express-jwt v6.x and later
-const User = require('../models/User');  // Ensure the path matches your project structure
+const { expressjwt: expressJwt } = require('express-jwt');  
+const User = require('../models/User');  
 
-const secret = process.env.JWT_SECRET;  // Ensures the secret is sourced from environment variables
+const secret = process.env.JWT_SECRET;  
 
 // Middleware to protect routes using the updated `expressJwt` import and parameter changes
 const requireSignin = expressJwt({
     secret: secret,
     algorithms: ["HS256"],
-    requestProperty: 'auth'  // 'userProperty' is replaced with 'requestProperty' in v6.x
+    requestProperty: 'auth'  
 });
 
 // Function to generate a JWT token

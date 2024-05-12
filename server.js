@@ -5,8 +5,8 @@ require('dotenv').config();
 const app = express();
 
 // Import routes
-const userRoutes = require('./routes/userRoutes'); // Ensure the path is correct
-const blogRoutes = require('./routes/blogRoutes'); // Ensure the path is correct
+const userRoutes = require('./routes/userRoutes'); 
+const blogRoutes = require('./routes/blogRoutes'); 
 
 // Middleware to parse JSON bodies
 app.use(express.json());

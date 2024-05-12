@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { requireSignin } = require('../auth/auth');  // Ensure this is defined in your models
+const { requireSignin } = require('../auth/auth');  
 const Blog = require('../models/Blog');
 const Comment = require('../models/Comment');
 
@@ -28,7 +28,7 @@ router.get('/:id', async (req, res) => {
         if (!blog || blog.state !== 'published') {
             return res.status(404).send({ message: 'Blog not found or not published' });
         }
-        blog.read_count += 1;  // Increment read count
+        blog.read_count += 1;  
         await blog.save();
         res.json(blog);
     } catch (error) {
@@ -44,7 +44,7 @@ router.post('/', requireSignin, async (req, res) => {
         description,
         body,
         tags,
-        author: req.auth._id,  // Assuming req.auth contains authenticated user's ID
+        author: req.auth._id, 
         state: 'draft'
     });
     await blog.save();
