@@ -26,3 +26,15 @@
 {"level":"info","message":"MongoDB Connected","service":"blog-service"}
 {"level":"info","message":"Server running on PORT 3001","service":"blog-service"}
 {"level":"info","message":"MongoDB Connected","service":"blog-service"}
+{"level":"info","message":"Server running on PORT 3001","service":"blog-service"}
+{"level":"info","message":"MongoDB Connected","service":"blog-service"}
+{"level":"info","message":"Server running on PORT 3001","service":"blog-service"}
+{"level":"info","message":"MongoDB Connected","service":"blog-service"}
+{"level":"info","message":"Received POST request from ::ffff:127.0.0.1 for /users/register","service":"blog-service"}
+{"level":"info","message":"Received POST request from ::ffff:127.0.0.1 for /users/login","service":"blog-service"}
+{"level":"info","message":"Server running on PORT 3001","service":"blog-service"}
+{"level":"info","message":"MongoDB Connected","service":"blog-service"}
+{"level":"info","message":"Server running on PORT 3001","service":"blog-service"}
+{"level":"info","message":"MongoDB Connected","service":"blog-service"}
+{"level":"info","message":"Server running on PORT 3001","service":"blog-service"}
+{"level":"info","message":"MongoDB Connected","service":"blog-service"}

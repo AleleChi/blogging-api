@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const logger = require('./utils/logger'); // Ensure this points to your Winston logger configuration
+const logger = require('./utils/logger'); 
 const helmet = require('helmet');
 const cors = require('cors');
 
@@ -10,8 +10,8 @@ dotenv.config();
 const app = express();
 
 // Security enhancements
-app.use(helmet()); // Sets various HTTP headers to secure your app
-app.use(cors()); // Enable CORS with various options
+app.use(helmet()); 
+app.use(cors()); 
 
 // Middleware to parse JSON bodies
 app.use(express.json());

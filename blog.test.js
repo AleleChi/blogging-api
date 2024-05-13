@@ -88,7 +88,7 @@ describe('Blogs', () => {
         chai.request(app)
             .post('/blogs')
             .send({
-                title: '', // Intentionally faulty input
+                title: '', 
                 body: 'Body without title'
             })
             .end((err, res) => {
